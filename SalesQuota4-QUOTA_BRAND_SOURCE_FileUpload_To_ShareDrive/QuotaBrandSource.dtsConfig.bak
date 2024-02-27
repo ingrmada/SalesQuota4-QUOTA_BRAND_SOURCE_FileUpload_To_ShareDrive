@@ -1,0 +1,116 @@
+<?xml version="1.0"?>
+<DTSConfiguration>
+	<DTSConfigurationHeading>
+		<DTSConfigurationFileInfo GeneratedBy="CORP\hourmada" GeneratedFromPackageName="Package1" GeneratedFromPackageID="{38295C72-A390-4123-A714-D5CC5BBA46E7}" GeneratedDate="1/31/2024 3:43:43 PM"/>
+	</DTSConfigurationHeading>
+	<Configuration ConfiguredType="Property" Path="\Package.Connections[Flat File Connection Manager].Properties[ColumnNamesInFirstDataRow]" ValueType="Boolean">
+		<ConfiguredValue>-1</ConfiguredValue>
+	</Configuration>
+	<Configuration ConfiguredType="Property" Path="\Package.Connections[Flat File Connection Manager].Properties[ConnectionString]" ValueType="String">
+		<ConfiguredValue>\\ymcucdc03.youngsmarket.com\depts\SHARED\Applications-UCIT\SalesQuota\QUOTA_BRAND_SOURCE\QUOTA_BRAND_SOURCE_2024_1_31.xls</ConfiguredValue>
+	</Configuration>
+	<Configuration ConfiguredType="Property" Path="\Package.Connections[Flat File Connection Manager].Properties[Format]" ValueType="String">
+		<ConfiguredValue>Delimited</ConfiguredValue>
+	</Configuration>
+	<Configuration ConfiguredType="Property" Path="\Package.Connections[Flat File Connection Manager].Properties[Name]" ValueType="String">
+		<ConfiguredValue>Flat File Connection Manager</ConfiguredValue>
+	</Configuration>
+	<Configuration ConfiguredType="Property" Path="\Package.Connections[SMTP Connection Manager].Properties[ConnectionString]" ValueType="String">
+		<ConfiguredValue>SmtpServer=relay1.rndc-usa.com;UseWindowsAuthentication=False;EnableSsl=False;Timeout=20000;</ConfiguredValue>
+	</Configuration>
+	<Configuration ConfiguredType="Property" Path="\Package.Connections[SMTP Connection Manager].Properties[EnableSsl]" ValueType="Boolean">
+		<ConfiguredValue>0</ConfiguredValue>
+	</Configuration>
+	<Configuration ConfiguredType="Property" Path="\Package.Connections[SMTP Connection Manager].Properties[SmtpServer]" ValueType="String">
+		<ConfiguredValue>relay1.rndc-usa.com</ConfiguredValue>
+	</Configuration>
+	<Configuration ConfiguredType="Property" Path="\Package.Connections[SMTP Connection Manager].Properties[TargetServerVersion]" ValueType="Int32">
+		<ConfiguredValue>110</ConfiguredValue>
+	</Configuration>
+	<Configuration ConfiguredType="Property" Path="\Package.Connections[SMTP Connection Manager].Properties[Timeout]" ValueType="Int32">
+		<ConfiguredValue>20000</ConfiguredValue>
+	</Configuration>
+	<Configuration ConfiguredType="Property" Path="\Package.Connections[wabitsql\prod.SalesQuota4].Properties[ConnectionString]" ValueType="String">
+		<ConfiguredValue>Data Source=wabitsql\prod;Initial Catalog=SalesQuota4;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package-{14F86142-DC5E-405D-9852-169B66C07C2C}wabitsql\prod.SalesQuota4;Auto Translate=False;</ConfiguredValue>
+	</Configuration>
+	<Configuration ConfiguredType="Property" Path="\Package.Connections[wabitsql\prod.SalesQuota4].Properties[InitialCatalog]" ValueType="String">
+		<ConfiguredValue>SalesQuota4</ConfiguredValue>
+	</Configuration>
+	<Configuration ConfiguredType="Property" Path="\Package.Connections[wabitsql\prod.SalesQuota4].Properties[Password]" ValueType="String">
+		<ConfiguredValue></ConfiguredValue>
+	</Configuration>
+	<Configuration ConfiguredType="Property" Path="\Package.Connections[wabitsql\prod.SalesQuota4].Properties[ServerName]" ValueType="String">
+		<ConfiguredValue>wabitsql\prod</ConfiguredValue>
+	</Configuration>
+	<Configuration ConfiguredType="Property" Path="\Package.Connections[wabitsql\prod.SalesQuota4].Properties[UserName]" ValueType="String">
+		<ConfiguredValue></ConfiguredValue>
+	</Configuration>
+	<Configuration ConfiguredType="Property" Path="\Package.Variables[User::ArchiveFolderPath].Properties[Expression]" ValueType="String">
+		<ConfiguredValue>"\\\\ymcucdc03.youngsmarket.com\\depts\\SHARED\\Applications-UCIT\\SalesQuota\\QUOTA_BRAND_SOURCE\\Archive"</ConfiguredValue>
+	</Configuration>
+	<Configuration ConfiguredType="Property" Path="\Package.Variables[User::ArchiveFolderPath].Properties[ReadOnly]" ValueType="Boolean">
+		<ConfiguredValue>0</ConfiguredValue>
+	</Configuration>
+	<Configuration ConfiguredType="Property" Path="\Package.Variables[User::ArchiveFolderPath].Properties[Value]" ValueType="String">
+		<ConfiguredValue>\\ymcucdc03.youngsmarket.com\depts\SHARED\Applications-UCIT\SalesQuota\QUOTA_BRAND_SOURCE\Archive</ConfiguredValue>
+	</Configuration>
+	<Configuration ConfiguredType="Property" Path="\Package.Variables[User::FilePath].Properties[EvaluateAsExpression]" ValueType="Boolean">
+		<ConfiguredValue>-1</ConfiguredValue>
+	</Configuration>
+	<Configuration ConfiguredType="Property" Path="\Package.Variables[User::FilePath].Properties[Expression]" ValueType="String">
+		<ConfiguredValue>"\\\\ymcucdc03.youngsmarket.com\\depts\\SHARED\\Applications-UCIT\\SalesQuota\\QUOTA_BRAND_SOURCE\\"</ConfiguredValue>
+	</Configuration>
+	<Configuration ConfiguredType="Property" Path="\Package.Variables[User::FilePath].Properties[Name]" ValueType="String">
+		<ConfiguredValue>FilePath</ConfiguredValue>
+	</Configuration>
+	<Configuration ConfiguredType="Property" Path="\Package.Variables[User::FilePath].Properties[ReadOnly]" ValueType="Boolean">
+		<ConfiguredValue>0</ConfiguredValue>
+	</Configuration>
+	<Configuration ConfiguredType="Property" Path="\Package.Variables[User::FilePath].Properties[Value]" ValueType="String">
+		<ConfiguredValue>\\ymcucdc03.youngsmarket.com\depts\SHARED\Applications-UCIT\SalesQuota\QUOTA_BRAND_SOURCE\</ConfiguredValue>
+	</Configuration>
+	<Configuration ConfiguredType="Property" Path="\Package.Properties[UpdateObjects]" ValueType="Boolean">
+		<ConfiguredValue>0</ConfiguredValue>
+	</Configuration>
+	<Configuration ConfiguredType="Property" Path="\Package.Properties[VersionMinor]" ValueType="Int32">
+		<ConfiguredValue>0</ConfiguredValue>
+	</Configuration>
+	<Configuration ConfiguredType="Property" Path="\Package\Archive file.Properties[Name]" ValueType="String">
+		<ConfiguredValue>Archive file</ConfiguredValue>
+	</Configuration>
+	<Configuration ConfiguredType="Property" Path="\Package\Archive file.Properties[ReadOnlyVariables]" ValueType="String">
+		<ConfiguredValue>User::ArchiveFolderPath,User::FilePath</ConfiguredValue>
+	</Configuration>
+	<Configuration ConfiguredType="Property" Path="\Package\Read Data from Source And Send to File.Properties[Name]" ValueType="String">
+		<ConfiguredValue>Read Data from Source And Send to File</ConfiguredValue>
+	</Configuration>
+	<Configuration ConfiguredType="Property" Path="\Package\Upload file to SharePoint Folder.Properties[Arguments]" ValueType="String">
+		<!-- DEV -->
+		<!-- <ConfiguredValue>-ExecutionPolicy Unrestricted -command "C:\Users\ingrmada\source\repos\SalesQuota4-QUOTA_BRAND_SOURCE_FileUpload_To_ShareDrive\SalesQuota4-QUOTA_BRAND_SOURCE_FileUpload_To_ShareDrive\UploadFileToSharePoint.ps1"</ConfiguredValue> -->
+	<!-- QA -->
+		<!-- <ConfiguredValue>-ExecutionPolicy Unrestricted -command "\\wabitsql-qa\c$\SalesQuota4-Quota_Brand_Source_PSscripts\UploadFileToSharePoint.ps1"</ConfiguredValue> -->
+		<ConfiguredValue>-ExecutionPolicy Unrestricted -NoExit -command "C:\SalesQuota4-Quota_Brand_Source_PSscripts\UploadFileToSharePoint.ps1"</ConfiguredValue>
+	<!-- PROD -->
+		<!-- <ConfiguredValue>-ExecutionPolicy Unrestricted -command "\\WABITSQL\Programs\Powershell\UploadFileToSharePoint.ps1"</ConfiguredValue> -->
+	
+	
+	</Configuration>
+	<Configuration ConfiguredType="Property" Path="\Package\Upload file to SharePoint Folder.Properties[Executable]" ValueType="String">
+		<!-- DEV -->
+		<!-- <ConfiguredValue>C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe</ConfiguredValue> -->
+		<!-- QA -->
+		<ConfiguredValue>C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe</ConfiguredValue>
+		<!-- <ConfiguredValue>\\wabitsql-qa\c$\Windows\System32\WindowsPowerShell\v1.0\powershell.exe</ConfiguredValue> -->
+		<!-- PROD -->
+		<!-- <ConfiguredValue>\\wabitsql\c$\Windows\System32\WindowsPowerShell\v1.0\powershell.exe</ConfiguredValue> -->
+	</Configuration>
+	<Configuration ConfiguredType="Property" Path="\Package\Upload file to SharePoint Folder.Properties[WindowStyle]" ValueType="Int32">
+		<ConfiguredValue>1</ConfiguredValue>
+	</Configuration>
+	<Configuration ConfiguredType="Property" Path="\Package.EventHandlers[OnError].Variables[System::ErrorDescription].Properties[Name]" ValueType="String">
+		<ConfiguredValue>ErrorDescription</ConfiguredValue>
+	</Configuration>
+	<Configuration ConfiguredType="Property" Path="\Package.EventHandlers[OnError].Properties[Name]" ValueType="String">
+		<ConfiguredValue>OnError</ConfiguredValue>
+	</Configuration>
+</DTSConfiguration>

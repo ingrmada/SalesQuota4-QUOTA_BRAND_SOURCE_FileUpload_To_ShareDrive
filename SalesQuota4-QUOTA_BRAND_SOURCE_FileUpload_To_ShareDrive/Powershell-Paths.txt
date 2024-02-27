@@ -1,0 +1,16 @@
+
+LOCAL
+----- 
+Executable:
+C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+
+Arguments:
+-ExecutionPolicy Unrestricted -command "C:\Users\ingrmada\source\repos\SalesQuota4-QUOTA_BRAND_SOURCE_FileUpload_To_ShareDrive\SalesQuota4-QUOTA_BRAND_SOURCE_FileUpload_To_ShareDrive\UploadFileToSharePoint.ps1"
+
+QA
+---
+Executable:
+\\wabitsql-qa\c$\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+
+Arguments:
+-ExecutionPolicy Unrestricted -command "\\wabitsql-qa\c$\SalesQuota4-Quota_Brand_Source_PSscripts\UploadFileToSharePoint.ps1"

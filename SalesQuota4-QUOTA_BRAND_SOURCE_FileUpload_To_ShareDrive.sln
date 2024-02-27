@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.34031.81
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{C9674DCB-5085-4A16-B785-4C70DD1589BD}") = "SalesQuota4-QUOTA_BRAND_SOURCE_FileUpload_To_ShareDrive", "SalesQuota4-QUOTA_BRAND_SOURCE_FileUpload_To_ShareDrive\SalesQuota4-QUOTA_BRAND_SOURCE_FileUpload_To_ShareDrive.dtproj", "{A72D3A0F-4302-467A-8B5C-81475D3C4DEE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A72D3A0F-4302-467A-8B5C-81475D3C4DEE}.Development|Default.ActiveCfg = Development
+		{A72D3A0F-4302-467A-8B5C-81475D3C4DEE}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2E425692-EE33-402A-A99F-653E8184AE14}
+	EndGlobalSection
+EndGlobal

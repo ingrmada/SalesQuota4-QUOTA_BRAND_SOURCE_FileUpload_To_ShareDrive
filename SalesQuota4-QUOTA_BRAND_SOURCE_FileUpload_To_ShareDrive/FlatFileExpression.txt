@@ -1,0 +1,4 @@
+\\\\ymcucdc03.youngsmarket.com\\depts\\SHARED\\Applications-UCIT\\SalesQuota\\QUOTA_BRAND_SOURCE\\QUOTA_BRAND_SOURCE_2024_1_30.xls
+
+
+"\\\\ymcucdc03.youngsmarket.com\\depts\\SHARED\\Applications-UCIT\\SalesQuota\\QUOTA_BRAND_SOURCE\\QUOTA_BRAND_SOURCE_" + (DT_WSTR,4)YEAR(GETDATE()) + "_" + (DT_WSTR,4)MONTH(GETDATE()) + "_" + (DT_WSTR,4)DAY(GETDATE()) + ".xls"

@@ -1,0 +1,703 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="1/23/2024 8:52:03 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="ATLLRMADA02"
+  DTS:CreatorName="CORP\hourmada"
+  DTS:DTSID="{C6DA3296-D4FA-4D51-BD27-B940E2CC27FE}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5270.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="50"
+  DTS:VersionGUID="{738D0412-CBF7-411A-AA74-6AA00FDD07DF}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{25EFDDF5-9708-4C8B-B47B-D3044972A1E6}"
+      DTS:ObjectName="Flat File Connection Manager">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">"\\\\ymcucdc03.youngsmarket.com\\depts\\SHARED\\Applications-UCIT\\SalesQuota\\QUOTA_BRAND_SOURCE\\QUOTA_BRAND_SOURCE_" + (DT_WSTR,4)YEAR(GETDATE()) + "_" + (DT_WSTR,4)MONTH(GETDATE()) + "_" + (DT_WSTR,4)DAY(GETDATE()) + ".xls"</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowsToSkip="1"
+          DTS:HeaderRowDelimiter="_x0009_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="\\ymcucdc03.youngsmarket.com\depts\SHARED\Applications-UCIT\SalesQuota\QUOTA_BRAND_SOURCE\QUOTA_BRAND_SOURCE_2024_1_25.xls">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="240"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SUPPLIER"
+              DTS:DTSID="{BCCF5616-92E4-42AD-A5BE-C8CC5ACA68C0}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="150"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SUPPLIER #"
+              DTS:DTSID="{17262C45-2FC3-4651-8CE3-C382ED2527C4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="BRAND"
+              DTS:DTSID="{04B3B5FF-5FE8-44F8-8F31-E9CF0F2552FD}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="150"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="BRAND #"
+              DTS:DTSID="{4BCE7262-D83F-48FB-9F6B-9B59EADF6D09}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="150"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SUB BRAND"
+              DTS:DTSID="{65035454-E05C-45C2-95BD-39400CDA6BC2}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SUB BRAND #"
+              DTS:DTSID="{9EB91DF6-4D97-4931-9390-B6D8B9429763}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SMTP Connection Manager]"
+      DTS:CreationName="SMTP"
+      DTS:DTSID="{4AE75E9C-FCA2-4FB1-9C58-B7C284FACE39}"
+      DTS:ObjectName="SMTP Connection Manager">
+      <DTS:ObjectData>
+        <SmtpConnectionManager
+          ConnectionString="SmtpServer=relay1.rndc-usa.com;UseWindowsAuthentication=True;EnableSsl=False;Timeout=20000;"
+          ConnectByProxy="False" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[wabitsql\prod.SalesQuota4]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{14F86142-DC5E-405D-9852-169B66C07C2C}"
+      DTS:ObjectName="wabitsql\prod.SalesQuota4">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=wabitsql\prod;Initial Catalog=SalesQuota4;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package-{14F86142-DC5E-405D-9852-169B66C07C2C}wabitsql\prod.SalesQuota4;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Execute Process Task"
+      DTS:CreationName="Microsoft.ExecuteProcess"
+      DTS:Description="Execute Process Task"
+      DTS:DTSID="{314650C9-6852-4B41-A23D-66C749559E93}"
+      DTS:ExecutableType="Microsoft.ExecuteProcess"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute Process Task"
+      DTS:TaskContact="Execute Process Task;Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecuteProcessData
+          Executable="C:\Program Files\7-Zip\7zG.exe"
+          Arguments="a C:\Users\ingrmada\source\repos\SalesQuota4-QUOTA_BRAND_SOURCE_FileUpload_To_ShareDrive\SalesQuota4-QUOTA_BRAND_SOURCE_FileUpload_To_ShareDrive\ZIPfiles\QUOTA_BRAND_SOURCE"
+          WorkingDirectory="C:\Users\ingrmada\source\repos\SalesQuota4-QUOTA_BRAND_SOURCE_FileUpload_To_ShareDrive\SalesQuota4-QUOTA_BRAND_SOURCE_FileUpload_To_ShareDrive\ExcelFiles" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Read Data from Source And Send to File"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{99F1B5C8-09A0-4BCE-835C-01481740A2CB}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Read Data from Source And Send to File"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Read Data from Source And Send to File\Read Supplier_Brand_SubBrand data"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Read Supplier_Brand_SubBrand data"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">dbo.usp_GetSalesQuotaSuppliersBrandsSubBrands</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Read Data from Source And Send to File\Read Supplier_Brand_SubBrand data.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[wabitsql\prod.SalesQuota4]"
+                  connectionManagerRefId="Package.ConnectionManagers[wabitsql\prod.SalesQuota4]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Read Data from Source And Send to File\Read Supplier_Brand_SubBrand data.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Read Data from Source And Send to File\Read Supplier_Brand_SubBrand data.Outputs[OLE DB Source Output].Columns[SUPPLIER]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Read Data from Source And Send to File\Read Supplier_Brand_SubBrand data.Outputs[OLE DB Source Output].ExternalColumns[SUPPLIER]"
+                      length="240"
+                      lineageId="Package\Read Data from Source And Send to File\Read Supplier_Brand_SubBrand data.Outputs[OLE DB Source Output].Columns[SUPPLIER]"
+                      name="SUPPLIER"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Read Data from Source And Send to File\Read Supplier_Brand_SubBrand data.Outputs[OLE DB Source Output].Columns[SUPPLIER #]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Read Data from Source And Send to File\Read Supplier_Brand_SubBrand data.Outputs[OLE DB Source Output].ExternalColumns[SUPPLIER #]"
+                      length="150"
+                      lineageId="Package\Read Data from Source And Send to File\Read Supplier_Brand_SubBrand data.Outputs[OLE DB Source Output].Columns[SUPPLIER #]"
+                      name="SUPPLIER #"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Read Data from Source And Send to File\Read Supplier_Brand_SubBrand data.Outputs[OLE DB Source Output].Columns[BRAND]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Read Data from Source And Send to File\Read Supplier_Brand_SubBrand data.Outputs[OLE DB Source Output].ExternalColumns[BRAND]"
+                      length="50"
+                      lineageId="Package\Read Data from Source And Send to File\Read Supplier_Brand_SubBrand data.Outputs[OLE DB Source Output].Columns[BRAND]"
+                      name="BRAND"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Read Data from Source And Send to File\Read Supplier_Brand_SubBrand data.Outputs[OLE DB Source Output].Columns[BRAND #]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Read Data from Source And Send to File\Read Supplier_Brand_SubBrand data.Outputs[OLE DB Source Output].ExternalColumns[BRAND #]"
+                      length="150"
+                      lineageId="Package\Read Data from Source And Send to File\Read Supplier_Brand_SubBrand data.Outputs[OLE DB Source Output].Columns[BRAND #]"
+                      name="BRAND #"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Read Data from Source And Send to File\Read Supplier_Brand_SubBrand data.Outputs[OLE DB Source Output].Columns[SUB BRAND]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Read Data from Source And Send to File\Read Supplier_Brand_SubBrand data.Outputs[OLE DB Source Output].ExternalColumns[SUB BRAND]"
+                      length="150"
+                      lineageId="Package\Read Data from Source And Send to File\Read Supplier_Brand_SubBrand data.Outputs[OLE DB Source Output].Columns[SUB BRAND]"
+                      name="SUB BRAND"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Read Data from Source And Send to File\Read Supplier_Brand_SubBrand data.Outputs[OLE DB Source Output].Columns[SUB BRAND #]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Read Data from Source And Send to File\Read Supplier_Brand_SubBrand data.Outputs[OLE DB Source Output].ExternalColumns[SUB BRAND #]"
+                      length="255"
+                      lineageId="Package\Read Data from Source And Send to File\Read Supplier_Brand_SubBrand data.Outputs[OLE DB Source Output].Columns[SUB BRAND #]"
+                      name="SUB BRAND #"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Read Data from Source And Send to File\Read Supplier_Brand_SubBrand data.Outputs[OLE DB Source Output].ExternalColumns[SUPPLIER]"
+                      dataType="wstr"
+                      length="240"
+                      name="SUPPLIER" />
+                    <externalMetadataColumn
+                      refId="Package\Read Data from Source And Send to File\Read Supplier_Brand_SubBrand data.Outputs[OLE DB Source Output].ExternalColumns[SUPPLIER #]"
+                      codePage="1252"
+                      dataType="str"
+                      length="150"
+                      name="SUPPLIER #" />
+                    <externalMetadataColumn
+                      refId="Package\Read Data from Source And Send to File\Read Supplier_Brand_SubBrand data.Outputs[OLE DB Source Output].ExternalColumns[BRAND]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="BRAND" />
+                    <externalMetadataColumn
+                      refId="Package\Read Data from Source And Send to File\Read Supplier_Brand_SubBrand data.Outputs[OLE DB Source Output].ExternalColumns[BRAND #]"
+                      codePage="1252"
+                      dataType="str"
+                      length="150"
+                      name="BRAND #" />
+                    <externalMetadataColumn
+                      refId="Package\Read Data from Source And Send to File\Read Supplier_Brand_SubBrand data.Outputs[OLE DB Source Output].ExternalColumns[SUB BRAND]"
+                      codePage="1252"
+                      dataType="str"
+                      length="150"
+                      name="SUB BRAND" />
+                    <externalMetadataColumn
+                      refId="Package\Read Data from Source And Send to File\Read Supplier_Brand_SubBrand data.Outputs[OLE DB Source Output].ExternalColumns[SUB BRAND #]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="SUB BRAND #" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Read Data from Source And Send to File\Read Supplier_Brand_SubBrand data.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Read Data from Source And Send to File\Read Supplier_Brand_SubBrand data.Outputs[OLE DB Source Error Output].Columns[SUPPLIER]"
+                      dataType="wstr"
+                      length="240"
+                      lineageId="Package\Read Data from Source And Send to File\Read Supplier_Brand_SubBrand data.Outputs[OLE DB Source Error Output].Columns[SUPPLIER]"
+                      name="SUPPLIER" />
+                    <outputColumn
+                      refId="Package\Read Data from Source And Send to File\Read Supplier_Brand_SubBrand data.Outputs[OLE DB Source Error Output].Columns[SUPPLIER #]"
+                      codePage="1252"
+                      dataType="str"
+                      length="150"
+                      lineageId="Package\Read Data from Source And Send to File\Read Supplier_Brand_SubBrand data.Outputs[OLE DB Source Error Output].Columns[SUPPLIER #]"
+                      name="SUPPLIER #" />
+                    <outputColumn
+                      refId="Package\Read Data from Source And Send to File\Read Supplier_Brand_SubBrand data.Outputs[OLE DB Source Error Output].Columns[BRAND]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Read Data from Source And Send to File\Read Supplier_Brand_SubBrand data.Outputs[OLE DB Source Error Output].Columns[BRAND]"
+                      name="BRAND" />
+                    <outputColumn
+                      refId="Package\Read Data from Source And Send to File\Read Supplier_Brand_SubBrand data.Outputs[OLE DB Source Error Output].Columns[BRAND #]"
+                      codePage="1252"
+                      dataType="str"
+                      length="150"
+                      lineageId="Package\Read Data from Source And Send to File\Read Supplier_Brand_SubBrand data.Outputs[OLE DB Source Error Output].Columns[BRAND #]"
+                      name="BRAND #" />
+                    <outputColumn
+                      refId="Package\Read Data from Source And Send to File\Read Supplier_Brand_SubBrand data.Outputs[OLE DB Source Error Output].Columns[SUB BRAND]"
+                      codePage="1252"
+                      dataType="str"
+                      length="150"
+                      lineageId="Package\Read Data from Source And Send to File\Read Supplier_Brand_SubBrand data.Outputs[OLE DB Source Error Output].Columns[SUB BRAND]"
+                      name="SUB BRAND" />
+                    <outputColumn
+                      refId="Package\Read Data from Source And Send to File\Read Supplier_Brand_SubBrand data.Outputs[OLE DB Source Error Output].Columns[SUB BRAND #]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Read Data from Source And Send to File\Read Supplier_Brand_SubBrand data.Outputs[OLE DB Source Error Output].Columns[SUB BRAND #]"
+                      name="SUB BRAND #" />
+                    <outputColumn
+                      refId="Package\Read Data from Source And Send to File\Read Supplier_Brand_SubBrand data.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Read Data from Source And Send to File\Read Supplier_Brand_SubBrand data.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Read Data from Source And Send to File\Read Supplier_Brand_SubBrand data.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Read Data from Source And Send to File\Read Supplier_Brand_SubBrand data.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Read Data from Source And Send to File\Send Data To File"
+              componentClassID="Microsoft.FlatFileDestination"
+              contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Destination"
+              localeId="1033"
+              name="Send Data To File"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether the data will overwrite or append to the destination file."
+                  name="Overwrite">true</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the text to write to the destination file before any data is written."
+                  expressionType="Notify"
+                  name="Header" />
+                <property
+                  dataType="System.Boolean"
+                  description="When text qualifier is enabled, specifies whether the text qualifier in the data written to the destination file will be escaped or not."
+                  name="EscapeQualifier">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Read Data from Source And Send to File\Send Data To File.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager]"
+                  name="FlatFileConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Read Data from Source And Send to File\Send Data To File.Inputs[Flat File Destination Input]"
+                  hasSideEffects="true"
+                  name="Flat File Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Read Data from Source And Send to File\Send Data To File.Inputs[Flat File Destination Input].Columns[SUPPLIER]"
+                      cachedDataType="wstr"
+                      cachedLength="240"
+                      cachedName="SUPPLIER"
+                      externalMetadataColumnId="Package\Read Data from Source And Send to File\Send Data To File.Inputs[Flat File Destination Input].ExternalColumns[SUPPLIER]"
+                      lineageId="Package\Read Data from Source And Send to File\Read Supplier_Brand_SubBrand data.Outputs[OLE DB Source Output].Columns[SUPPLIER]" />
+                    <inputColumn
+                      refId="Package\Read Data from Source And Send to File\Send Data To File.Inputs[Flat File Destination Input].Columns[SUPPLIER #]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="150"
+                      cachedName="SUPPLIER #"
+                      externalMetadataColumnId="Package\Read Data from Source And Send to File\Send Data To File.Inputs[Flat File Destination Input].ExternalColumns[SUPPLIER #]"
+                      lineageId="Package\Read Data from Source And Send to File\Read Supplier_Brand_SubBrand data.Outputs[OLE DB Source Output].Columns[SUPPLIER #]" />
+                    <inputColumn
+                      refId="Package\Read Data from Source And Send to File\Send Data To File.Inputs[Flat File Destination Input].Columns[BRAND]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="BRAND"
+                      externalMetadataColumnId="Package\Read Data from Source And Send to File\Send Data To File.Inputs[Flat File Destination Input].ExternalColumns[BRAND]"
+                      lineageId="Package\Read Data from Source And Send to File\Read Supplier_Brand_SubBrand data.Outputs[OLE DB Source Output].Columns[BRAND]" />
+                    <inputColumn
+                      refId="Package\Read Data from Source And Send to File\Send Data To File.Inputs[Flat File Destination Input].Columns[BRAND #]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="150"
+                      cachedName="BRAND #"
+                      externalMetadataColumnId="Package\Read Data from Source And Send to File\Send Data To File.Inputs[Flat File Destination Input].ExternalColumns[BRAND #]"
+                      lineageId="Package\Read Data from Source And Send to File\Read Supplier_Brand_SubBrand data.Outputs[OLE DB Source Output].Columns[BRAND #]" />
+                    <inputColumn
+                      refId="Package\Read Data from Source And Send to File\Send Data To File.Inputs[Flat File Destination Input].Columns[SUB BRAND]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="150"
+                      cachedName="SUB BRAND"
+                      externalMetadataColumnId="Package\Read Data from Source And Send to File\Send Data To File.Inputs[Flat File Destination Input].ExternalColumns[SUB BRAND]"
+                      lineageId="Package\Read Data from Source And Send to File\Read Supplier_Brand_SubBrand data.Outputs[OLE DB Source Output].Columns[SUB BRAND]" />
+                    <inputColumn
+                      refId="Package\Read Data from Source And Send to File\Send Data To File.Inputs[Flat File Destination Input].Columns[SUB BRAND #]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="SUB BRAND #"
+                      externalMetadataColumnId="Package\Read Data from Source And Send to File\Send Data To File.Inputs[Flat File Destination Input].ExternalColumns[SUB BRAND #]"
+                      lineageId="Package\Read Data from Source And Send to File\Read Supplier_Brand_SubBrand data.Outputs[OLE DB Source Output].Columns[SUB BRAND #]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Read Data from Source And Send to File\Send Data To File.Inputs[Flat File Destination Input].ExternalColumns[SUPPLIER]"
+                      dataType="wstr"
+                      length="240"
+                      name="SUPPLIER" />
+                    <externalMetadataColumn
+                      refId="Package\Read Data from Source And Send to File\Send Data To File.Inputs[Flat File Destination Input].ExternalColumns[SUPPLIER #]"
+                      codePage="1252"
+                      dataType="str"
+                      length="150"
+                      name="SUPPLIER #" />
+                    <externalMetadataColumn
+                      refId="Package\Read Data from Source And Send to File\Send Data To File.Inputs[Flat File Destination Input].ExternalColumns[BRAND]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="BRAND" />
+                    <externalMetadataColumn
+                      refId="Package\Read Data from Source And Send to File\Send Data To File.Inputs[Flat File Destination Input].ExternalColumns[BRAND #]"
+                      codePage="1252"
+                      dataType="str"
+                      length="150"
+                      name="BRAND #" />
+                    <externalMetadataColumn
+                      refId="Package\Read Data from Source And Send to File\Send Data To File.Inputs[Flat File Destination Input].ExternalColumns[SUB BRAND]"
+                      codePage="1252"
+                      dataType="str"
+                      length="150"
+                      name="SUB BRAND" />
+                    <externalMetadataColumn
+                      refId="Package\Read Data from Source And Send to File\Send Data To File.Inputs[Flat File Destination Input].ExternalColumns[SUB BRAND #]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="SUB BRAND #" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Read Data from Source And Send to File.Paths[OLE DB Source Output]"
+              endId="Package\Read Data from Source And Send to File\Send Data To File.Inputs[Flat File Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Read Data from Source And Send to File\Read Supplier_Brand_SubBrand data.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Send Mail Task"
+      DTS:CreationName="Microsoft.SendMailTask"
+      DTS:Description="Send Mail Task"
+      DTS:DTSID="{D5891A15-39DB-4DC6-8C17-9ECC3F001C14}"
+      DTS:ExecutableType="Microsoft.SendMailTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Send Mail Task"
+      DTS:TaskContact="Send Mail Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SendMailTask:SendMailTaskData
+          SendMailTask:SMTPServer="{4AE75E9C-FCA2-4FB1-9C58-B7C284FACE39}"
+          SendMailTask:From="SalesQuotaSupport@RNDC-USA.COM"
+          SendMailTask:To="ratnakar.mada@rndc-usa.com"
+          SendMailTask:Subject="QUOTA BRAND SOURCE Report"
+          SendMailTask:MessageSource="Hi, &#xA;&#xA;Attached here is Quota Brand Source report. &#xA;&#xA;&#xA;SalesQuota Support Digital Support&#xA;Republic National Distributing Company&#xA;SalesQuotaSupport@RNDC-USA.COM&#xA;www.RNDC-USA.com&#xA;&#xA;" xmlns:SendMailTask="www.microsoft.com/sqlserver/dts/tasks/sendmailtask">
+          <SendMailTask:Attachments
+            SendMailTask:FileName="C:\Users\ingrmada\source\repos\SalesQuota4-QUOTA_BRAND_SOURCE_FileUpload_To_ShareDrive\SalesQuota4-QUOTA_BRAND_SOURCE_FileUpload_To_ShareDrive\ZIPfiles\QUOTA_BRAND_SOURCE.7z" />
+        </SendMailTask:SendMailTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{88554925-1D30-4B02-92A7-DB00DC18D43D}"
+      DTS:From="Package\Read Data from Source And Send to File"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Execute Process Task" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{ED50C0D2-E464-408A-AEE6-B8B808AD7A30}"
+      DTS:From="Package\Execute Process Task"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Send Mail Task" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="185.333333333334,42.6666666666667"
+          Id="Package\Execute Process Task"
+          TopLeft="122.499998174608,155.315792397119" />
+        <NodeLayout
+          Size="273.333333333334,42.6666666666667"
+          Id="Package\Read Data from Source And Send to File"
+          TopLeft="120.624998202548,52.6842115179654" />
+        <NodeLayout
+          Size="153.333333333334,42.6666666666667"
+          Id="Package\Send Mail Task"
+          TopLeft="133.124998016283,256.578952197883" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="257.291664869214,95.3508781846321">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-42.1250000279398,59.9649142124866"
+              Start="0,0"
+              End="-42.1250000279398,52.4649142124866">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.9824571062433" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,25.9824571062433"
+                    Point2="0,29.9824571062433"
+                    Point3="-4,29.9824571062433" />
+                  <mssgle:LineSegment
+                    End="-38.1250000279398,29.9824571062433" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-38.1250000279398,29.9824571062433"
+                    Point2="-42.1250000279398,29.9824571062433"
+                    Point3="-42.1250000279398,33.9824571062433" />
+                  <mssgle:LineSegment
+                    End="-42.1250000279398,52.4649142124866" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="212.479164762112,197.982459063785">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,58.596493134098"
+              Start="0,0"
+              End="0,51.096493134098">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,51.096493134098" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Read Data from Source And Send to File">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="258.666666666667,42.6666666666667"
+          Id="Package\Read Data from Source And Send to File\Read Supplier_Brand_SubBrand data"
+          TopLeft="153.12499771826,81.4210541641283" />
+        <NodeLayout
+          Size="165.333333333334,42.6666666666667"
+          Id="Package\Read Data from Source And Send to File\Send Data To File"
+          TopLeft="187.499997206032,191.57895097442" />
+        <EdgeLayout
+          Id="Package\Read Data from Source And Send to File.Paths[OLE DB Source Output]"
+          TopLeft="282.458331051593,124.087720830795">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-12.291667178894,67.4912301436246"
+              Start="0,0"
+              End="-12.291667178894,59.9912301436246">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.7456150718123" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,29.7456150718123"
+                    Point2="0,33.7456150718123"
+                    Point3="-4,33.7456150718123" />
+                  <mssgle:LineSegment
+                    End="-8.29166717889404,33.7456150718123" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-8.29166717889404,33.7456150718123"
+                    Point2="-12.291667178894,33.7456150718123"
+                    Point3="-12.291667178894,37.7456150718123" />
+                  <mssgle:LineSegment
+                    End="-12.291667178894,59.9912301436246" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Read Data from Source And Send to File\Read Supplier_Brand_SubBrand data">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
